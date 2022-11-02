@@ -10,6 +10,7 @@ TransformListView::TransformListView(QWidget *parent)
     :QListView(parent)
 {
     setAcceptDrops(true);
+    setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void TransformListView::dragEnterEvent(QDragEnterEvent *event) {

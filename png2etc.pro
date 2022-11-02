@@ -27,7 +27,17 @@ mySetOfExtraFiles.path = Contents/MacOS
 QMAKE_BUNDLE_DATA += mySetOfExtraFiles
 message($$OUT_PWD)
 
-QMAKE_POST_LINK += macdeployqt $$OUT_PWD/$${TARGET}.app
+CONFIG += debug_and_release
+
+CONFIG(release, debug|release) {
+message(release build!)
+ QMAKE_POST_LINK += macdeployqt $$OUT_PWD/$${TARGET}.app
+}
+
+CONFIG(debug, debug|release) {
+message(debug build!)
+}
+
 ICON = icon.icns
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -15,6 +15,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onItemDoubleClicked(const QModelIndex &index);
+    void onPreviewRequest(const QString& targetFile);
+
 private:
     Ui::MainWindow *ui;
 };
